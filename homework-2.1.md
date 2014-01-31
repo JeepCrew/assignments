@@ -31,3 +31,89 @@ When you're done editing this file, save it, commit it, and push it to your "ass
 
 ## Now get to it!
 
+`https://c9.io/jeepcrew/scrollreveal_js:28`
+```javascript
+    var docElem = window.document.documentElement;
+    // Variable: docElem
+    // Variable: window.document.documentElement
+```
+    
+`https://c9.io/jeepcrew/scrollreveal_js:56`
+```javascript
+    function isElementInViewport (el, h) {
+    var scrolled = window.pageYOffset,
+        viewed = scrolled + getViewportH(),
+        elH = el.offsetHeight,
+        elTop = getOffset(el).top,
+        elBottom = elTop + elH,
+        h = h || 0;
+    //  Function: isElementInViewport( el, h ), getViewportH(), getOffset( el)
+    //  Variables: scrolled, viewed, elH, elTop, elBottom, h, window.pageYOffset, el.offsetHeight
+    //  Arithmetic Operators:   +
+    //  Logical Operators:  ||
+```
+
+`https://c9.io/jeepcrew/scrollreveal_js:84-89`
+```javascript
+    scrollReveal.prototype = {
+    defaults: {
+      axis: 'y',
+      distance: '25px',
+      duration: '0.66s',
+      delay: '0s',
+    //  Variable: scrollReveal.prototype
+```
+
+`https://c9.io/jeepcrew/scrollreveal_js:111-118`
+```javascript
+    var scrollHandler = function () {
+        if (!self.scrolled) {
+          self.scrolled = true;
+          setTimeout(function () {
+            self._scrollPage();
+          }, 60);
+        }
+      };
+    //  Variables:  scrollHandler, 
+    //  Boolean:  true
+    //  Functions:  function (), self._scrollPage ()
+    //  Constant: 60
+    //  Arithmetic Operators:   =
+    //  Logical Statement: if
+```
+
+`https://c9.io/jeepcrew/scrollreveal_js:137-145`
+```javascript
+    _scrollPage: function () {
+        var self = this;
+
+        this.elems.forEach(function (el, i) {
+            if (isElementInViewport(el, self.options.viewportFactor)) {
+                self.animate(el);
+            }
+        });
+        this.scrolled = false;
+    },
+    //  Variables: self, this, this.scrolled
+    //  Boolean: false
+    //  Functions: function (), this.elems.forEach (), isElementInViewport {}, self.animate ()
+    //  Logical Statement: if
+    //  ?Constant:  _scrollpage?
+```
+
+`https://c9.io/jeepcrew/scrollreveal_js:168-176`
+```javascript
+    words.forEach(function (word, i) {
+          if (blacklist.indexOf(word) > -1) {
+            return;
+          }
+          ret.push(word);
+        });
+
+        return ret;
+      }
+    //  Function: words.forEach ()function (), ret.push (), blacklist.indexOf ()
+    //  Logical Statement:    if, ?return?
+    //  Arithmetic Operators:   >
+    //  Constant:   -1
+```
