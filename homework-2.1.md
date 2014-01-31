@@ -38,7 +38,7 @@ When you're done editing this file, save it, commit it, and push it to your "ass
     // Variable: window.document.documentElement
 ```
     
-`https://c9.io/jeepcrew/scrollreveal_js:56`
+`https://c9.io/jeepcrew/scrollreveal_js:56-62`
 ```javascript
     function isElementInViewport (el, h) {
     var scrolled = window.pageYOffset,
