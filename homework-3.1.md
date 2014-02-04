@@ -1,5 +1,5 @@
-Example 1:
-
+`Example 1:`
+```javascript
 var oConsole = document.getElementById("console");
 var oList =  oConsole.getElementsByTagName("ul")[0];
 function fpLog(sMessage)
@@ -28,9 +28,10 @@ if(!window.console)
 		};
 	}
 }
+```
 
-Cleaned up version of Example 1:
-
+`Cleaned up version of Example 1:`
+```javascript
 var oConsole = document.getElementById("console");
 var oList = oConsole.getElementsByTagName("ul")[0];
 function fpLog(sMessage) {
@@ -53,3 +54,4 @@ if(!window.console) {
 		};
 	}
 }
+```
