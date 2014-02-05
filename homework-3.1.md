@@ -574,19 +574,19 @@ this.reset();return g};
 
     function    Voronoi() {
         this.vertices = null; this.edges = null; this.cells = null; this.toRecycle = null; this.beachsectionJunkyard = [];
-        this.circleEventJunkyard = []; this.vertexJunkyard = []; this.edgeJunkyard = []; this.cellJunkyard = []
+        this.circleEventJunkyard = []; this.vertexJunkyard = []; this.edgeJunkyard = []; this.cellJunkyard = [];
     }
 
     Voronoi.prototype.reset = function() {
         if(!this.beachline) {
-            this.beachline=new this.RBTree()
+            this.beachline=new this.RBTree();
         }
         
         if(this.beachline.root) {
             var a = this.beachline.getFirst(this.beachline.root);
             while(a) {
                 this.beachsectionJunkyard.push(a);
-                a = a.rbNext
+                a = a.rbNext;
             }
         }
         
@@ -608,7 +608,7 @@ this.reset();return g};
     Voronoi.prototype.invε = Voronoi.invε = 1 / Voronoi.ε;
     
     Voronoi.prototype.equalWithEpsilon = function(d,c) {
-        return this.abs(d - c) < 1e-9
+        return this.abs(d - c) < 1e-9;
     }
     
     Voronoi.prototype.greaterThanWithEpsilon = function(d,c) { 
@@ -637,19 +637,19 @@ this.reset();return g};
             a.rbPrevious = e;
             a.rbNext = e.rbNext;
                 if(e.rbNext) {
-                    e.rbNext.rbPrevious =a
+                    e.rbNext.rbPrevious = a;
                 }
                 e.rbNext=a;
                 if(e.rbRight) { 
                     e = e.rbRight;
                     while(e.rbLeft) { 
-                        e = e.rbLeft
+                        e = e.rbLeft;
                     }
-                    e.rbLeft = a
+                    e.rbLeft = a;
                 }   else { 
-                    e.rbRight = a
+                    e.rbRight = a;
                 }
-                d=e
+                d=e;
         }   else {
             
                 if(this.root) {
@@ -658,11 +658,11 @@ this.reset();return g};
                     a.rbNext = e;
                     e.rbPrevious = a;
                     e.rbLeft = a;
-                    d=e
+                    d=e;
                 }   else {
                         a.rbPrevious = a.rbNext = null;
                         this.root = a;
-                        d = null
+                        d = null;
                     }
             }
             
@@ -678,23 +678,23 @@ this.reset();return g};
                 if(b && b.rbRed) {
                     d.rbRed = b.rbRed = false;
                     c.rbRed = true;
-                    e = c
+                    e = c;
                 }   else {
                         if(e === d.rbRight) {
                             this.rbRotateLeft(d);
                             e = d;
-                            d = e.rbParent
+                            d = e.rbParent;
                         }
                         d.rbRed = false;
                         c.rbRed = true;
-                        this.rbRotateRight(c)
+                        this.rbRotateRight(c);
                     }
             }   else {
                     b = c.rbLeft;
                     if(b && b.rbRed) {
                         d.rbRed = b.rbRed = false;
                         c.rbRed = true;
-                        e=c
+                        e=c;
                     }   else {
                         if(e === d.rbLeft) {
                             this.rbRotateRight(d);
@@ -703,14 +703,15 @@ this.reset();return g};
                         }
                         d.rbRed = false;
                         c.rbRed = true;
-                        this.rbRotateLeft(c)
+                        this.rbRotateLeft(c);
                         }
-                    }d=e.rbParent
+                    }
+                    d = e.rbParent;
         }
-        this.root.rbRed=false
+        this.root.rbRed=false;
     }
     
-    ;Voronoi.prototype.RBTree.prototype.rbRemoveNode=function(f){if(f.rbNext){f.rbNext.rbPrevious=f.rbPrevious
+    Voronoi.prototype.RBTree.prototype.rbRemoveNode=function(f){if(f.rbNext){f.rbNext.rbPrevious=f.rbPrevious
     }if(f.rbPrevious){f.rbPrevious.rbNext=f.rbNext}f.rbNext=f.rbPrevious=null;var e=f.rbParent,g=f.rbLeft,b=f.rbRight,d;if(!g){d=b
     }else{if(!b){d=g}else{d=this.getFirst(b)}}if(e){if(e.rbLeft===f){e.rbLeft=d}else{e.rbRight=d}}else{this.root=d}var a;if(g&&b){a=d.rbRed;
     d.rbRed=f.rbRed;d.rbLeft=g;g.rbParent=d;if(d!==b){e=d.rbParent;d.rbParent=f.rbParent;f=d.rbRight;e.rbLeft=f;d.rbRight=b;b.rbParent=d
