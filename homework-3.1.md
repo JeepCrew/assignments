@@ -377,7 +377,7 @@ var VoronoiDemo = {
 			halfedge = halfedges[iHalfedge];
 			p1 = halfedge.getStartpoint();
 			p2 = halfedge.getEndpoint();
-			v = p1.x*p2.y - p2.x*p1.y;
+			v = p1.x * p2.y - p2.x * p1.y;
 			x += (p1.x+p2.x) * v;
 			y += (p1.y+p2.y) * v;
 		}
