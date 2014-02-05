@@ -96,12 +96,12 @@ var VoronoiDemo = {
 		if (this.timeout) {
 			clearTimeout(this.timeout)
 			this.timeout = null;
-			}
+		    }
 		var me = this;
 		this.timeout = setTimeout(function(){
 			me.relaxSites();
-			}, this.timeoutDelay);
-		},
+		    }, this.timeoutDelay);
+	    },
 
 	relaxSites: function() {
 		if (!this.diagram) {return;}
@@ -136,7 +136,7 @@ var VoronoiDemo = {
 					});
 				}
 			sites.push(site);
-			}
+		    }
 		this.compute(sites);
 		if (again) {
 			var me = this;
@@ -245,6 +245,10 @@ var VoronoiDemo = {
 `Cleaned up Example 2 (rhill-voronoi-demo5.html)`
 ```javascript
 
+//Check lines 384, 404
+
+//User is inconsistant with spacing between arithmetic operators
+
 //Really long variable declaration
 var VoronoiDemo = {
 
@@ -267,6 +271,7 @@ var VoronoiDemo = {
 
 	randomSites: function(n, clear) {
 		var sites = [];
+		
 		if (!clear) {
 			sites = this.sites.slice(0);
 		}
@@ -279,7 +284,7 @@ var VoronoiDemo = {
 			dy = this.canvas.height-ymargin*2;
 			
 		for (var i=0; i<n; i++) {
-			sites.push({x:self.Math.round((xo+self.Math.random()*dx)*10)/10,y:self.Math.round((yo+self.Math.random()*dy)*10)/10});
+			    sites.push({x:self.Math.round((xo + self.Math.random() * dx) * 10) / 10,y:self.Math.round((yo + self.Math.random() * dy) * 10) / 10});
 		}
 		
 		this.compute(sites);
@@ -287,13 +292,13 @@ var VoronoiDemo = {
 		if (this.timeout) {
 			clearTimeout(this.timeout)
 			this.timeout = null;
-			}
+		}
+		
 		var me = this;
 		this.timeout = setTimeout(function() {
 		    me.relaxSites();
-		    }, 
-		    this.timeoutDelay);
-		},
+		}, this.timeoutDelay);
+	},
 
 	relaxSites: function() {
 		if (!this.diagram) {return;}
@@ -316,33 +321,34 @@ var VoronoiDemo = {
 			again = again || dist > 1;
 			// don't relax too fast
 			if (dist > 2) {
-				site.x = (site.x+cell.site.x)/2;
-				site.y = (site.y+cell.site.y)/2;
+				site.x = (site.x + cell.site.x) / 2;
+				site.y = (site.y + cell.site.y) / 2;
 			}
 			// probability of mytosis
-			if (rn > (1-p)) {
+			if (rn > (1 - p)) {
 				dist /= 2;
 				sites.push({
-					x: site.x+(site.x-cell.site.x)/dist,
-					y: site.y+(site.y-cell.site.y)/dist,
-					});
-				}
+					x: site.x + (site.x - cell.site.x) / dist,
+					y: site.y + (site.y - cell.site.y) / dist,
+				});
+			}
 			sites.push(site);
 		}
 		this.compute(sites);
+		
 		if (again) {
 			var me = this;
 			this.timeout = setTimeout(function(){
 				me.relaxSites();
 				}, this.timeoutDelay);
-			}
-		},
+		}
+	},
 
 	distance: function(a, b) {
-		var dx = a.x-b.x,
-			dy = a.y-b.y;
-		return Math.sqrt(dx*dx+dy*dy);
-		},
+		var dx = a.x - b.x,
+			dy = a.y - b.y;
+		return Math.sqrt(dx * dx + dy * dy);
+	},
 
 	cellArea: function(cell) {
 		var area = 0,
@@ -356,10 +362,10 @@ var VoronoiDemo = {
 			p2 = halfedge.getEndpoint();
 			area += p1.x * p2.y;
 			area -= p1.y * p2.x;
-			}
+		}
 		area /= 2;
 		return area;
-		},
+	},
 
 	cellCentroid: function(cell) {
 		var x = 0, y = 0,
@@ -374,10 +380,13 @@ var VoronoiDemo = {
 			v = p1.x*p2.y - p2.x*p1.y;
 			x += (p1.x+p2.x) * v;
 			y += (p1.y+p2.y) * v;
-			}
+		}
 		v = this.cellArea(cell) * 6;
-		return {x:x/v,y:y/v};
-		},
+		
+//Not sure what ":" is used for
+
+		return {x:x / v,y:y / v};
+	},
 
 	compute: function(sites) {
 		this.sites = sites;
@@ -385,14 +394,16 @@ var VoronoiDemo = {
 		this.diagram = this.voronoi.compute(sites, this.bbox);
 		this.updateStats();
 		this.render();
-		},
+	},
 
 	updateStats: function() {
 		if (!this.diagram) {return;}
 		var e = document.getElementById('voronoiStats');
 		if (!e) {return;}
 		e.innerHTML = '('+this.diagram.cells.length+' Voronoi cells computed from '+this.diagram.cells.length+' Voronoi sites in '+this.diagram.execTime+' ms &ndash; rendering <i>not</i> included)';
-		},
+	},
+
+//Uses bracked endings like I have been for lines 406+443, 407+442
 
 	render: function() {
 		var ctx = this.canvas.getContext('2d');
@@ -418,7 +429,7 @@ var VoronoiDemo = {
 			ctx.moveTo(v.x,v.y);
 			v = edge.vb;
 			ctx.lineTo(v.x,v.y);
-			}
+		}
 		ctx.stroke();
 		// sites
 		ctx.beginPath();
@@ -427,8 +438,8 @@ var VoronoiDemo = {
 			iSite = sites.length;
 		while (iSite--) {
 			v = sites[iSite];
-			ctx.rect(v.x-2/3,v.y-2/3,2,2);
-			}
+			ctx.rect(v.x - 2 / 3,v.y - 2 / 3,2,2);
+		}
 		ctx.fill();
 		},
 	};
