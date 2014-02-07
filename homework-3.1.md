@@ -44,7 +44,7 @@ if(!window.console) {
 	window.console = {};
 	window.console.log = function(sMessage) {
 		fpLog(sMessage);
-	};
+	}
 } else {
 	if(window.console.log) {
 		var fpConsoleLog = window.console.log;
@@ -67,20 +67,20 @@ var VoronoiDemo = {
 	sites: [],
 	timeoutDelay: 100,
 
-	init: function() {
-		this.canvas = document.getElementById('voronoiCanvas');
-		this.randomSites(100,true);
-		},
+	init:   function() {
+		    this.canvas = document.getElementById('voronoiCanvas');
+		    this.randomSites(100,true);
+		    },
 
 	clearSites: function() {
-		this.compute([]);
-		},
+		        this.compute([]);
+		        },
 
 	randomSites: function(n, clear) {
 		var sites = [];
 		if (!clear) {
 			sites = this.sites.slice(0);
-			}
+		}
 		// create vertices
 		var xmargin = this.canvas.width*this.margin,
 			ymargin = this.canvas.height*this.margin,
@@ -89,19 +89,17 @@ var VoronoiDemo = {
 			yo = ymargin,
 			dy = this.canvas.height-ymargin*2;
 		for (var i=0; i<n; i++) {
-			sites.push({x:self.Math.round((xo+self.Math.random()*dx)*10)/10,y:self.Math.round((yo+self.Math.random()*dy)*10)/10});
-			}
+			sites.push({x:self.Math.round((xo + self.Math.random() * dx) * 10) / 10,y:self.Math.round((yo + self.Math.random() * dy) * 10) / 10});
+		}
 		this.compute(sites);
 		// relax sites
 		if (this.timeout) {
-			clearTimeout(this.timeout)
+			clearTimeout(this.timeout);
 			this.timeout = null;
-		    }
+		}
 		var me = this;
-		this.timeout = setTimeout(function(){
-			me.relaxSites();
-		    }, this.timeoutDelay);
-	    },
+		this.timeout = setTimeout(function() {me.relaxSites();},  this.timeoutDelay);
+	},
 
 	relaxSites: function() {
 		if (!this.diagram) {return;}
@@ -144,13 +142,13 @@ var VoronoiDemo = {
 				me.relaxSites();
 				}, this.timeoutDelay);
 			}
-		},
+	},
 
 	distance: function(a, b) {
 		var dx = a.x-b.x,
 			dy = a.y-b.y;
-		return Math.sqrt(dx*dx+dy*dy);
-		},
+		return Math.sqrt(dx * dx + dy * dy);
+	},
 
 	cellArea: function(cell) {
 		var area = 0,
@@ -164,10 +162,10 @@ var VoronoiDemo = {
 			p2 = halfedge.getEndpoint();
 			area += p1.x * p2.y;
 			area -= p1.y * p2.x;
-			}
+		}
 		area /= 2;
 		return area;
-		},
+	},
 
 	cellCentroid: function(cell) {
 		var x = 0, y = 0,
@@ -185,7 +183,7 @@ var VoronoiDemo = {
 			}
 		v = this.cellArea(cell) * 6;
 		return {x:x/v,y:y/v};
-		},
+	},
 
 	compute: function(sites) {
 		this.sites = sites;
@@ -193,14 +191,14 @@ var VoronoiDemo = {
 		this.diagram = this.voronoi.compute(sites, this.bbox);
 		this.updateStats();
 		this.render();
-		},
+	},
 
 	updateStats: function() {
 		if (!this.diagram) {return;}
 		var e = document.getElementById('voronoiStats');
 		if (!e) {return;}
 		e.innerHTML = '('+this.diagram.cells.length+' Voronoi cells computed from '+this.diagram.cells.length+' Voronoi sites in '+this.diagram.execTime+' ms &ndash; rendering <i>not</i> included)';
-		},
+	},
 
 	render: function() {
 		var ctx = this.canvas.getContext('2d');
@@ -235,11 +233,11 @@ var VoronoiDemo = {
 			iSite = sites.length;
 		while (iSite--) {
 			v = sites[iSite];
-			ctx.rect(v.x-2/3,v.y-2/3,2,2);
-			}
+			ctx.rect(v.x-2 / 3,v.y-2 / 3,2,2);
+		}
 		ctx.fill();
-		},
-	};
+	},
+};
 ```
 
 `Cleaned up Example 2 (rhill-voronoi-demo5.html)`
@@ -441,8 +439,8 @@ var VoronoiDemo = {
 			ctx.rect(v.x - 2 / 3,v.y - 2 / 3,2,2);
 		}
 		ctx.fill();
-		},
-	};
+	},
+};
 ```
 
 `Example 3 (rhill-voronoi-core.min.js)`
