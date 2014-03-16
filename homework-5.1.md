@@ -1,4 +1,4 @@
-`Example 1 - /src/core.js lines 125-188`
+`/src/core.js lines 125-188`
 ```javascript```
 	jQuery.extend = jQuery.fn.extend = function() {
 	var options, name, src, copy, copyIsArray, clone,
