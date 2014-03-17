@@ -1,9 +1,11 @@
-`javascript-voronoi 86-96`
+`javascript - rhill-voronoi-core.js 86-96`
 ```javascript
 
 /**
  * Function name is "Voronoi"
- *
+ * "this" is dictionary
+ * "vertices, edges, cells, and toRecycle" are and their value is "null"
+ * "beachsectionJunkyard, circleEventJunkyard, vertexJunkyard, edgeJunkyard, and cellJunkyard" are and their values are empty 
 **/
 
 function Voronoi() {
