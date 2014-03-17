@@ -21,3 +21,21 @@ function Voronoi() {
     }
     
 ```
+
+`javascript - valid-function.js 1-10`
+```javascript
+'use strict';
+
+/**
+ * Function name is "isFunction"
+**/
+
+var isFunction = require('./is-function');
+
+module.exports = function (x) {
+	if (!isFunction(x)) {
+		throw new TypeError(x + " is not a function");
+	}
+	return x;
+};
+```
