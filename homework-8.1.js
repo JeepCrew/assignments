@@ -81,7 +81,7 @@ function add (a, b) {
  assert.equal(sub(+1, +0), +1);
  assert.equal(sub(+1, +1), +0);
  
- function sub(a, b) {
+ function sub (a, b) {
     
     if (a == -1 && b == -1) return +0;
     
@@ -102,3 +102,54 @@ function add (a, b) {
     return +0;
     
  }
+ 
+ /**
+ * Test plan for multiplication():
+ * 
+ * 1st / 2nd / output
+ * -----+-----+------
+ *   -1 |  -1 |  +1
+ *   -1 |  +0 |  +0
+ *   -1 |  +1 |  -1
+ *   +0 |  -1 |  +0
+ *   +0 |  +0 |  +0
+ *   +0 |  +1 |  -0
+ *   +1 |  -1 |  -1
+ *   +1 |  +0 |  +0
+ *   +1 |  +1 |  +1
+ */
+ 
+ assert.equal(mult(-1, -1), +1);
+ assert.equal(mult(-1, +0), +0);
+ assert.equal(mult(-1, +1), -1);
+ assert.equal(mult(+0, -1), +0);
+ assert.equal(mult(+0, +0), +0);
+ assert.equal(mult(+0, +1), +0);
+ assert.equal(mult(+1, -1), -1);
+ assert.equal(mult(+1, +0), +0);
+ assert.equal(mult(+1, +1), +1);
+ 
+ function mult (a, b) {
+     
+    if (a == -1 && b == -1) return +1;
+    
+    if (a == -1 && b == +0) return +0;
+    
+    if (a == -1 && b == +1) return -1;
+    
+    if (a == +0 && b == -1) return +0;
+    
+    if (a == +0 && b == +0) return +0;
+    
+    if (a == +0 && b == +1) return +0;
+    
+    if (a == +1 && b == -1) return -1;
+    
+    if (a == +1 && b == +0) return +0;
+    
+    return +1;
+     
+ }
+ 
+ 
+ 
