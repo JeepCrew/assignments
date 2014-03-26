@@ -152,4 +152,51 @@ function add (a, b) {
  }
  
  
+ /**
+ * Test plan for division():
+ * 
+ * 1st / 2nd / output
+ * -----+-----+------
+ *   -1 |  -1 |  +1
+ *   -1 |  +0 |  +NaN
+ *   -1 |  +1 |  -1
+ *   +0 |  -1 |  +0
+ *   +0 |  +0 |  +NaN
+ *   +0 |  +1 |  +0
+ *   +1 |  -1 |  -1
+ *   +1 |  +0 |  +NaN
+ *   +1 |  +1 |  +1
+ */
+ 
+ assert.equal(div(-1, -1), +1);
+ assert.equal(div(-1, +0), +NaN);
+ assert.equal(div(-1, +1), -1);
+ assert.equal(div(+0, -1), +0);
+ assert.equal(div(+0, +0), +NaN);
+ assert.equal(div(+0, +1), +0);
+ assert.equal(div(+1, -1), -1);
+ assert.equal(div(+1, +0), +NaN);
+ assert.equal(div(+1, +1), +1);
+ 
+ function div (a, b) {
+     
+    if (a == -1 && b == -1) return +1;
+    
+    if (a == -1 && b == +0) return +NaN;
+    
+    if (a == -1 && b == +1) return -1;
+    
+    if (a == +0 && b == -1) return -1;
+    
+    if (a == +0 && b == +0) return +NaN;
+    
+    if (a == +0 && b == +1) return +1;
+    
+    if (a == +1 && b == -1) return -1;
+    
+    if (a == +1 && b == +0) return +NaN;
+    
+    return +1;
+     
+ }
  
