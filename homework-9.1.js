@@ -25,15 +25,33 @@ module.exports = {
 
     divide: function divide(a, b) {
         
-        if ( a == -1 && b == -1) return +1;
-        if ( a == -1 && b == +0) return null;
-        if ( a == -1 && b == +1) return -1;
-        if ( a == +0 && b == -1) return +0;
-        if ( a == +0 && b == +0) return null;
-        if ( a == +0 && b == +1) return +0;
-        if ( a == +1 && b == -1) return -1;
-        if ( a == +1 && b == +0) return null;
-        return +1;
+        if ( a == -1 ) {
+            
+            if ( b == -1 ) return +1;
+            
+            if ( b == +0 ) return null;
+            
+            if ( b == +1 ) return -1;
+            
+        }
+        
+        if ( a == +0 ) {
+            
+            if ( b == -1 ) return +0;
+            
+            if ( b == +0 ) return null;
+            
+            if ( b == +1 ) return +0;
+        }
+        
+        if ( a == +1 ) {
+        
+            if ( b == -1 ) return -1;
+            
+            if ( b == +0 ) return null;
+            
+            if ( b == +1 ) return +1;
+        }
     
     }
 };
