@@ -31,7 +31,7 @@ module.exports = {
             
             if ( b == +0 ) return null;
             
-            if ( b == +1 ) return -1;
+            return -1;
             
         }
         
@@ -41,7 +41,7 @@ module.exports = {
             
             if ( b == +0 ) return null;
             
-            if ( b == +1 ) return +0;
+            return +0;
         }
         
         if ( a == +1 ) {
@@ -50,7 +50,7 @@ module.exports = {
             
             if ( b == +0 ) return null;
             
-            if ( b == +1 ) return +1;
+            return +1;
         }
     
     }
