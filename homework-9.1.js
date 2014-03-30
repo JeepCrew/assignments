@@ -23,7 +23,7 @@ module.exports = {
         
     },
 
-    divide: function divide(a, b) {
+    divide: function divide (a, b) {
         
         if ( a == -1 && b !== +0 ) {
             
@@ -33,7 +33,7 @@ module.exports = {
             
         }
         
-        if ( a == +0 && b !== 0) {
+        if ( a == +0 && b !== +0) {
             
             if ( b == -1 ) return +0;
             
