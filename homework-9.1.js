@@ -55,22 +55,6 @@ module.exports = {
     
     },
     
-    /**
- * Test plan for addition():
- * 
- *  1st | 2nd | output
- * -----+-----+-------
- *   -1 |  -1 |  -2
- *   -1 |  +0 |  -1
- *   -1 |  +1 |  +0
- *   +0 |  -1 |  -1
- *   +0 |  +0 |  +0
- *   +0 |  +1 |  +1
- *   +1 |  -1 |  +0
- *   +1 |  +0 |  +1
- *   +1 |  +1 |  +2
- */
-    
     addition: function addition (a, b) {
         
         if ( a == -1 ) {
