@@ -110,7 +110,7 @@ tests.forEach(function(row){
     var a = row[0],
         b = row[1],
         c = row[2];
-    assertEqual(calculator.divide(a, b), c, "fail on " + row);
+    assertEqual(calculator.divide(a, b), c, "division fail on " + row);
 });
 
 /**
@@ -145,7 +145,7 @@ tests.forEach(function(row) {
     var a = row[0],
         b = row[1],
         c = row[2];
-    assertEqual(calculator.addition(a, b), c, "fail on " + row);
+    assertEqual(calculator.addition(a, b), c, "addition fail on " + row);
 });
 
 /**
@@ -163,11 +163,11 @@ tests.forEach(function(row) {
  *   +1 |  +0 |  +1
  *   +1 |  +1 |  +0
  */
- 
+
 var tests = [
     [-1, -1, +0],
     [-1, +0, -1],
-    [-1, +1, +0],
+    [-1, +1, -2],
     [+0, -1, +1],
     [+0, +0, +0],
     [+0, +1, -1],
@@ -180,5 +180,5 @@ tests.forEach(function(row) {
     var a = row[0],
         b = row[1],
         c = row[2];
-    assertEqual(calculator.addition(a, b), c, "fail on " + row);
+    assertEqual(calculator.subtraction(a, b), c, "subtraction fail on " + row);
 });
